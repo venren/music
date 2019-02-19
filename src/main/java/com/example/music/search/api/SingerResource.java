@@ -64,14 +64,14 @@ public class SingerResource {
 
     }
 
-    @DeleteMapping("/singers/{id}")
+    @DeleteMapping("/{id}")
     public void deleteSinger(@PathVariable long id) {
         singerRepository.deleteById(id);
     }
 
 
 
-    @PutMapping("/singers/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Object> updateSinger(@RequestBody Singer singer, @PathVariable long id) {
 
         Optional<Singer> singerOptional = singerRepository.findById(id);
