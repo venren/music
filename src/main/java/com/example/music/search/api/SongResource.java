@@ -41,7 +41,7 @@ public class SongResource {
         return searchResultPage;
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Song getSong(@PathVariable long id)throws ResourceNotFoundException {
         Optional<Song> song = songRepository.findById(id);
         if(!song.isPresent()) {
@@ -63,12 +63,12 @@ public class SongResource {
 
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deleteSong(@PathVariable long id) {
         songRepository.deleteById(id);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Object> updateSong(@RequestBody Song song, @PathVariable long id) {
 
         Optional<Song> songOptional = songRepository.findById(id);
