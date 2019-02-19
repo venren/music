@@ -42,7 +42,7 @@ public class SingerResource {
         return searchResultPage;
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Singer getSinger(@PathVariable long id)throws ResourceNotFoundException {
         Optional<Singer> singer = singerRepository.findById(id);
         if(!singer.isPresent()) {
